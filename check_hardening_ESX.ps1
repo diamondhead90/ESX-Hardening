@@ -207,7 +207,7 @@ else{
 
 ######################################### Check SHELL TIMEOUT ##########################################
 $checkShellTimeOut=Get-VMHostAdvancedConfiguration UserVars.ESXiShellTimeOut | Select -ExpandProperty Values
-if ($checkTimeOut -lt 3600){
+if ($checkShellTimeOut -lt 3600){
 	Write-Output "5.8 Set a timeout for Shell Services (Scored): [ NOT OK ]
 Fix: Get-VMHost | Foreach { Set-VMHostAdvancedConfiguration -VMHost `$_ -Name UserVars.ESXiShellTimeOut -Value 3600 }  
 "}
